@@ -1,0 +1,8 @@
+export {default as HomeIcon} from "./home-icon.svg"
+export {default as DriveThru} from "./drivethru-icon.svg"
+export {default as DiscoverIcon} from "./discover-icon.svg"
+export {default as OrdersIcon} from "./orders-icon.svg"
+export {default as ProfileIcon} from "./profile-icon.svg"
+export {default as LocationIcon} from "./location-icon.svg"
+export {default as clockIcon} from "./clock-icon.svg"
+export {default as searchIcon} from "./search-icon.svg"
