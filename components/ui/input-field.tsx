@@ -26,12 +26,13 @@ const InputField = ({
     <View>
       <CustomText fontSize="lg" fontFamily="medium" color={theme.colors.gray[500]}>{label}</CustomText>
 
-      <View className="mr-3 bg-[#EFF2F5] rounded-2xl h-14 flex-row items-center px-3">
+      <View className="mr-3 bg-[#8492AD1A] rounded-2xl h-14 flex-row items-center px-3">
 
       <TabIcon className="" name="search" Icon={searchIcon}/>
       
       <TextInput
         placeholder={placeholder}
+        placeholderTextColor="#9CA3AF"
         value={value}
         onChangeText={onChangeText}
         // multiline={multiline}

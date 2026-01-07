@@ -1,1 +1,1 @@
-export { default as CategoryCircle } from './categories'
+export {default as SharedHeader} from './header';

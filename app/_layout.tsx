@@ -7,6 +7,7 @@ export default function RootLayout() {
     <ReactQueryClientProvider>
     <Stack>
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack.Screen name="details" options={{ headerShown: false }} />
     </Stack>
     </ReactQueryClientProvider>
   );
