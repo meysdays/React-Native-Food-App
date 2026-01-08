@@ -2,17 +2,21 @@ import { View, Text, FlatList } from "react-native";
 import React from "react";
 import { useGetMealsByCategory } from "@/hooks/food";
 import FoodItem from "./food-item";
-import DetailScreen from "@/app/details";
-import { InputField } from "../ui";
+
+import { useAsyncStorage } from "@/hooks/async-storage/async-storage";
+
 
 interface FoodListProps {
   selectedCategory: string | undefined;
 }
 
 const FoodList = ({ selectedCategory }: FoodListProps) => {
-  const { data, isLoading, isError } = useGetMealsByCategory(
+  const { data, isLoading } = useGetMealsByCategory(
     selectedCategory || ""
   );
+
+  
+
   return (
     <View>
       {isLoading && <Text>Loading</Text>}
@@ -26,6 +30,7 @@ const FoodList = ({ selectedCategory }: FoodListProps) => {
               name={item.strMeal}
               img={item.strMealThumb}
               id={item.idMeal}
+              category={selectedCategory}
             />
           )}
           numColumns={2}

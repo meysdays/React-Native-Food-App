@@ -6,11 +6,11 @@ import { theme } from '@/constants/theme';
 interface TabIconProps {
   name: string;
   Icon: React.FC<SvgProps>
-  // focused: boolean;
+  focused: boolean;
   className?: string;
 }
 
-const TabIcon = ({ name, Icon, className }: TabIconProps) => {
+const TabIcon = ({ name, Icon, className, focused }: TabIconProps) => {
     const {sizes} = theme;
     const itemWidth = sizes.screen.width / 16;
   return (
@@ -25,6 +25,7 @@ const TabIcon = ({ name, Icon, className }: TabIconProps) => {
       <Icon
         height={20}
         width={20}
+        fill={focused ? "red" : "transparent"}
       />
     </View>
   )
