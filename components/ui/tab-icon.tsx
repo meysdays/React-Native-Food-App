@@ -6,7 +6,7 @@ import { theme } from '@/constants/theme';
 interface TabIconProps {
   name: string;
   Icon: React.FC<SvgProps>
-  focused: boolean;
+  focused?: boolean;
   className?: string;
 }
 
