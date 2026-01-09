@@ -34,12 +34,7 @@ const FoodItem = ({ name, img, id, category }: FoodItemProps) => {
     category?: string
   ) {
     getImg({ name, img, id, category });
-    // save({
-    //   id,
-    //   name,
-    //   img,
-    //   category
-    // });
+    
 
     try {
       const existing = await AsyncStorage.getItem("meals");
@@ -49,7 +44,7 @@ const FoodItem = ({ name, img, id, category }: FoodItemProps) => {
 
       await AsyncStorage.setItem("meals", JSON.stringify(updated));
       console.log(updated);
-      // load()
+      load()
     } catch (error) {
       console.log(error, "error");
     }
