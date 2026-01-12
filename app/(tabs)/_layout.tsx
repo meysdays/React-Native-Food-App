@@ -5,6 +5,7 @@ import { theme } from '@/constants/theme'
 import {SvgProps} from 'react-native-svg'
 import { DiscoverIcon, DriveThru, HomeIcon, OrdersIcon, ProfileIcon } from '@/assets/icons'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import { TabIcon } from '@/components/ui'
 
 
 const TabsLayout = () => {
@@ -36,6 +37,7 @@ const TabsLayout = () => {
               name="home"
               Icon={HomeIcon}
               focused={focused}
+              size={28}
             />
           ),
           //  tabBarShowLabel: false,
@@ -52,7 +54,7 @@ const TabsLayout = () => {
         name="discover"
         options={{
           tabBarIcon: ({ focused }) => (
-            <TabIcon name="discover" Icon={DiscoverIcon} focused={focused} />
+            <TabIcon name="discover" size={28} Icon={DiscoverIcon} focused={focused} />
           ),
           // tabBarShowLabel: false,
         }}
@@ -62,7 +64,7 @@ const TabsLayout = () => {
         name="drivethru"
         options={{
           tabBarIcon: ({ focused }) => (
-            <TabIcon name="drivethru" Icon={DriveThru} focused={focused} />
+            <TabIcon name="drivethru" Icon={DriveThru} focused={focused} size={28} />
           ),
           // tabBarShowLabel: false,
         }}
@@ -71,7 +73,7 @@ const TabsLayout = () => {
         name="orders"
         options={{
           tabBarIcon: ({ focused }) => (
-            <TabIcon name="orders" Icon={OrdersIcon} focused={focused} />
+            <TabIcon name="orders" Icon={OrdersIcon} focused={focused} size={28} />
           ),
           // tabBarShowLabel: false,
         }}
@@ -81,7 +83,7 @@ const TabsLayout = () => {
         name="profile"
         options={{
           tabBarIcon: ({ focused }) => (
-            <TabIcon name="profile" Icon={ProfileIcon} focused={focused} />
+            <TabIcon name="profile" Icon={ProfileIcon} focused={focused} size={28}/>
           ),
           // tabBarShowLabel: false,
         }}
@@ -96,32 +98,32 @@ interface TabIconProps {
   focused: boolean;
 }
 
-function TabIcon({name, Icon, focused}: TabIconProps) {
-  const {sizes} = theme;
-  const itemWidth = sizes.screen.width / 12;
+// function TabIcon({name, Icon, focused}: TabIconProps) {
+//   const {sizes} = theme;
+//   const itemWidth = sizes.screen.width / 12;
 
-  return(
-    <View
-      className='items-center justify-center gap-2'
-      style={[
-        {
-          width: itemWidth,
-          height: "auto",
-        }
-      ]}
-    >
-      <Icon
-        height={34}
-        width={28}
-        fill={focused ? theme.colors.main : "transparent"}
-        strokeWidth={1.5}
-        stroke={
-          focused ? theme.colors.white : theme.colors.gray[300]
-        }
-      />
+//   return(
+//     <View
+//       className='items-center justify-center gap-2'
+//       style={[
+//         {
+//           width: itemWidth,
+//           height: "auto",
+//         }
+//       ]}
+//     >
+//       <Icon
+//         height={34}
+//         width={28}
+//         fill={focused ? theme.colors.main : "transparent"}
+//         strokeWidth={1.5}
+//         stroke={
+//           focused ? theme.colors.white : theme.colors.gray[300]
+//         }
+//       />
   
-    </View>
-  )
-}
+//     </View>
+//   )
+// }
 
 export default TabsLayout

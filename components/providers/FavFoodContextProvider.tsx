@@ -27,6 +27,8 @@ export const FavFoodContextProvider = ({ children }: { children: ReactNode }) =>
                 if (result) {
                     const parsed = JSON.parse(result);
                     setFavFoods(parsed);
+                }else{
+                    setFavFoods([])
                 }
             } catch (error) {
                 console.error("Error loading favorites:", error);

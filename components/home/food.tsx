@@ -3,7 +3,6 @@ import React from "react";
 import { useGetMealsByCategory } from "@/hooks/food";
 import FoodItem from "./food-item";
 
-import { useAsyncStorage } from "@/hooks/async-storage/async-storage";
 
 
 interface FoodListProps {

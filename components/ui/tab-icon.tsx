@@ -8,9 +8,10 @@ interface TabIconProps {
   Icon: React.FC<SvgProps>
   focused?: boolean;
   className?: string;
+  size?:number
 }
 
-const TabIcon = ({ name, Icon, className, focused }: TabIconProps) => {
+const TabIcon = ({ name, Icon, className, focused, size=20 }: TabIconProps) => {
     const {sizes} = theme;
     const itemWidth = sizes.screen.width / 16;
   return (
@@ -23,8 +24,8 @@ const TabIcon = ({ name, Icon, className, focused }: TabIconProps) => {
       ]}
     >
       <Icon
-        height={20}
-        width={20}
+        height={size}
+        width={size}
         fill={focused ? "red" : "transparent"}
       />
     </View>
