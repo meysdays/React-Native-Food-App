@@ -6,7 +6,7 @@ interface CartItemProps {
     img: string;
     id: string;
     category?: string;
-    quantity: string
+    quantity: number
 }
 
 interface ContextValue {

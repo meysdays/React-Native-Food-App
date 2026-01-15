@@ -4,20 +4,13 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { SharedHeader } from "@/components/shared";
 import { router, useLocalSearchParams } from "expo-router";
 import { TabIcon } from "@/components/ui";
-import { MinusIcon, PlusIcon } from "@/assets/icons";
+import { CartIcon, MinusIcon, PlusIcon } from "@/assets/icons";
 import { useCart } from "@/components/providers/cart-context";
 
-interface FoodItemProps {
-  name: string;
-  img: string;
-  id: string;
-  category?: string;
-  quantity: string;
-}
+const MealDetails = () => {
+  const { updateFavFoods, cart } = useCart();
 
-const MealDetails = (cart: FoodItemProps) => {
-  const { updateFavFoods } = useCart();
-
+  const len = cart.length;
   const { top, bottom } = useSafeAreaInsets();
 
   const { meal } = useLocalSearchParams();
@@ -31,13 +24,13 @@ const MealDetails = (cart: FoodItemProps) => {
     img: string;
     id: string;
     category: string;
-    quantity: string;
+    quantity: number;
   } = {
     name: meals.name,
     img: meals.img,
     id: meals.id,
     category: meals.category,
-    quantity: count.toLocaleString(),
+    quantity: count,
   };
   const addToCart = () => {
     updateFavFoods(carts);
@@ -49,7 +42,14 @@ const MealDetails = (cart: FoodItemProps) => {
   return (
     <View style={{ paddingTop: top, paddingBottom: bottom }}>
       <ScrollView contentContainerStyle={{ paddingBottom: 150 }}>
-        <SharedHeader></SharedHeader>
+        <SharedHeader className="flex flex-row justify-between  items-center ">
+          <Pressable onPress={() => router.navigate('/screens/cart-screen')}>
+            <TabIcon size={26} name="cart" Icon={CartIcon} className="mr-6" />
+            <View className="bg-[#FF774C] size-5  rounded-full items-center justify-center absolute bottom-3 left-5 border-2 border-white">
+              <Text className="text-white  text-[10px]">{len}</Text>
+            </View>
+          </Pressable>
+        </SharedHeader>
 
         <View className="w-84 h-78 mt-8 mx-6 bg-white rounded-4xl">
           <View className=" mx-auto my-auto">
@@ -94,11 +94,26 @@ const MealDetails = (cart: FoodItemProps) => {
             placeat provident consequatur autem illo tempore eos assumenda vitae
             sit?
           </Text>
+          <Text className="text-sm/7">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quia
+            placeat provident consequatur autem illo tempore eos assumenda vitae
+            sit?
+          </Text>
+          <Text className="text-sm/7">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quia
+            placeat provident consequatur autem illo tempore eos assumenda vitae
+            sit?
+          </Text>
+          <Text className="text-sm/7">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quia
+            placeat provident consequatur autem illo tempore eos assumenda vitae
+            sit?
+          </Text>
         </View>
       </ScrollView>
       <View style={{ bottom: bottom + 50 }}>
         <Pressable
-          className="bg-[#FF774C] items-center mx-4 rounded-3xl py-5 my-6 "
+          className="bg-[#FF774C] items-center mx-4 rounded-3xl py-3.5 my-6 "
           onPress={() => addToCart()}
         >
           <Text className="text-xl font-semibold text-white">Add to cart</Text>

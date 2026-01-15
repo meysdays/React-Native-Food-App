@@ -1,15 +1,20 @@
-import { View, Text } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import React from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { theme } from "@/constants/theme";
 import { SvgProps } from "react-native-svg";
-import { clockIcon, LocationIcon, ProfileIcon } from "@/assets/icons";
+import { CartIcon, clockIcon, LocationIcon, ProfileIcon } from "@/assets/icons";
 import { CustomText, InputField } from "@/components/ui";
 import TabIcon from "@/components/ui/tab-icon";
 import { Categories } from "@/components/home";
 import { Category } from "@/services/category/types";
+import { router } from "expo-router";
+import { useCart } from "@/components/providers/cart-context";
+
 
 const HomeScreen = () => {
+  const { updateFavFoods, cart } = useCart();
+  const len = cart.length;
   const { top } = useSafeAreaInsets();
   const [selectedCategory, setSelectedCategory] =
     React.useState<Category | null>(null);
@@ -32,6 +37,13 @@ const HomeScreen = () => {
             </CustomText>
           </View>
         </View>
+
+        <Pressable onPress={() => router.navigate("/screens/cart-screen")}>
+          <TabIcon size={26} name="cart" Icon={CartIcon} className="mr-6" />
+          <View className="bg-[#FF774C] size-5  rounded-full items-center justify-center absolute bottom-3 left-5 border-2 border-white">
+            <Text className="text-white  text-[10px]">{len}</Text>
+          </View>
+        </Pressable>
       </View>
 
       <View>
@@ -44,7 +56,6 @@ const HomeScreen = () => {
         selectedCategory={selectedCategory}
         onSelectCategory={setSelectedCategory}
       />
-      
     </View>
   );
 };

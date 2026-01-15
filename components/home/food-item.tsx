@@ -51,7 +51,7 @@ const FoodItem = (food: FoodItemProps) => {
             </View>
             <View className="mr-1">
               <Pressable onPress={() => router.navigate({
-                pathname: '/meal-details',
+                pathname: '/screens/meal-details',
                 params: {meal:JSON.stringify(food)}
               })}>
                 <View className="bg-gray-950 w-28 h-9 rounded-xl justify-center">

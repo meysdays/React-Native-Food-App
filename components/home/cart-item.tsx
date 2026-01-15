@@ -7,7 +7,7 @@ interface cartItemProps {
   img: string;
   name: string;
   category?: string;
-  quantity: string;
+  quantity: number;
   id: string;
   // onEdit?: () => void;
   onDelete?: () => void;

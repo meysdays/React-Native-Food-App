@@ -67,7 +67,7 @@ const Category = ({ selectedCategory, onSelectCategory }: CategoryProps) => {
                 selected={item.idCategory === selectedCategory?.idCategory}
                 onPress={() => {
                   router.push({
-                    pathname: '/details',
+                    pathname: '/screens/details',
                     params: { category: item.strCategory }
                   })
                 }}
