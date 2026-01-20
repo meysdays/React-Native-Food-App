@@ -10,9 +10,10 @@ import { Categories } from "@/components/home";
 import { Category } from "@/services/category/types";
 import { router } from "expo-router";
 import { useCart } from "@/components/providers/cart-context";
-
+import { useAuth } from "@/components/providers/auth-context";
 
 const HomeScreen = () => {
+  const { user } = useAuth();
   const { updateFavFoods, cart } = useCart();
   const len = cart.length;
   const { top } = useSafeAreaInsets();
@@ -47,7 +48,28 @@ const HomeScreen = () => {
       </View>
 
       <View>
-        <Text className="text-3xl -mb-2">Good Evening Luisa</Text>
+        {user ? (
+          <Text className="text-3xl -mb-2">Good Evening {user.name}</Text>
+        ) : (
+          <View className="flex-row w-3/6 justify-between">
+            <Pressable
+              onPress={() => {
+                router.navigate("/screens/login-screen");
+              }}
+              className="px-6 py-2 rounded-2xl  bg-[#FF774C]"
+            >
+              <Text className="text-center">Login</Text>
+            </Pressable>
+            <Pressable
+              onPress={() => {
+                router.navigate("/screens/login-screen");
+              }}
+              className="px-6 py-2 rounded-2xl  bg-[#FF774C]"
+            >
+              <Text className="text-center">register</Text>
+            </Pressable>
+          </View>
+        )}
       </View>
 
       <InputField placeholder="Search Food, Restaurants etc."></InputField>
